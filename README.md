@@ -2,7 +2,12 @@
 
 SYNCLAB is a real-time collaborative coding and compilation platform that allows multiple users to write, edit, and execute code together in a shared environment. It is designed for developers, students, and teams to collaborate efficiently on coding tasks, interviews, and projects.
 
----
+---  
+
+
+
+LIVE LINK:   https://synclab-1.onrender.com/  
+
 
 ## Features
 
@@ -42,7 +47,7 @@ npm install
 
 Create a .env file in the backend folder:
 
-MONGO_URI=<your_mongodb_connection_string>
+
 JDoodle_clientId=<your_jdoodle_client_id>
 JDoodle_clientSecret=<your_jdoodle_client_secret>
 PORT=5000
