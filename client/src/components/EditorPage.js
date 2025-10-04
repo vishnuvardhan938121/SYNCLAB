@@ -13,7 +13,7 @@ import {
 import { toast } from "react-hot-toast";
 import axios from "axios";
 
-// List of supported languages
+
 const LANGUAGES = [
   "python3",
   "java",
@@ -136,7 +136,7 @@ function EditorPage() {
   return (
     <div className="container-fluid vh-100 d-flex flex-column">
       <div className="row flex-grow-1">
-        {/* Sidebar - Pure Black */}
+       
         <div
           className="col-md-2 text-light d-flex flex-column"
           style={{ backgroundColor: "#000000" }}
@@ -170,7 +170,7 @@ function EditorPage() {
           </div>
         </div>
 
-        {/* Editor Area - Light Black */}
+        {/* Editor Area  */}
         <div
           className="col-md-10 text-light d-flex flex-column"
           style={{ backgroundColor: "#1c1c1c" }}
