@@ -9,7 +9,7 @@ import {
   useLocation,
   Navigate,
   useParams,
-} from "react-router-dom";
+} from "react-router-dom";    
 import { toast } from "react-hot-toast";
 import axios from "axios";
 
@@ -115,7 +115,7 @@ function EditorPage() {
   const runCode = async () => {
     setIsCompiling(true);
     try {
-      const response = await axios.post("http://localhost:5000/compile", {
+      const response = await axios.post("https://synclab-backend-057j.onrender.com//compile", {
         code: codeRef.current,
         language: selectedLanguage,
       });
