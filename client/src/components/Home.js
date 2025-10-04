@@ -39,7 +39,7 @@ function Home() {
       className="container-fluid d-flex flex-column"
       style={{
         minHeight: "100vh",
-        backgroundColor: "#f5f5dc", // beige
+        backgroundColor: "#f5f5dc", 
         padding: "0",
       }}
     >
