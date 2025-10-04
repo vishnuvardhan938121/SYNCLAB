@@ -111,7 +111,11 @@ app.post("/compile", async (req, res) => {
     console.error(error);
     res.status(500).json({ error: "Failed to compile code" });
   }
-});
+});  
+app.get('/',(req,res)=>
+  {
+    res.send("BACKEND IS RUNNING") 
+  };
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log(`Server is runnint on port ${PORT}`));
