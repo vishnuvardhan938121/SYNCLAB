@@ -115,7 +115,7 @@ function EditorPage() {
   const runCode = async () => {
     setIsCompiling(true);
     try {
-      const response = await axios.post("https://synclab-backend-057j.onrender.com//compile", {
+      const response = await axios.post("https://synclab-backend-057j.onrender.com/compile", {
         code: codeRef.current,
         language: selectedLanguage,
       });
