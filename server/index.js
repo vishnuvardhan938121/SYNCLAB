@@ -94,7 +94,7 @@ io.on("connection", (socket) => {
   });
 });
 
-app.post("/compile", async (req, res) => {
+/*app.post("/compile", async (req, res) => {
   const { code, language } = req.body;
 
   try {
@@ -111,7 +111,40 @@ app.post("/compile", async (req, res) => {
     console.error(error);
     res.status(500).json({ error: "Failed to compile code" });
   }
-});  
+});  */       
+
+app.post("/compile", async (req, res) => {
+  const { code, language } = req.body;
+
+  if (!code || !language) {
+    return res.status(400).json({ error: "Code and language are required" });
+  }
+
+  if (!languageConfig[language]) {
+    return res.status(400).json({ error: "Unsupported language" });
+  }
+
+  try {
+    const response = await axios.post("https://api.jdoodle.com/v1/execute", {
+      script: code,
+      language: language,
+      versionIndex: languageConfig[language].versionIndex,
+      clientId: process.env.jDoodle_clientId?.trim(),
+      clientSecret: process.env.jDoodle_clientSecret?.trim(),
+    });
+
+    res.json(response.data);
+  } catch (error) {
+    console.error("JDoodle API error:", error.response?.data || error.message);
+
+    // Send proper error info to frontend
+    res.status(error.response?.status || 500).json({
+      error: "Compilation failed",
+      details: error.response?.data || error.message,
+    });
+  }
+});
+
 
 app.get("/", (req, res) => {
   res.send("✅ BACKEND IS RUNNING SUCCESSFULLY ON RENDER");
